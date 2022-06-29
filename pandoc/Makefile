@@ -9,3 +9,12 @@ all:
 		-H head.tex \
 		-o README.pdf \
 		../README.md
+
+gfm:
+	@pandoc \
+		--filter pandoc-crossref \
+		--metadata-file metadata_gfm.json \
+		--from=markdown \
+		--to=gfm \
+		-o README.md \
+		../README.md
