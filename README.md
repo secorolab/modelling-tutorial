@@ -10,13 +10,11 @@ the challenges in modelling and how to address them with composable models; and
 (iv) kinematic chains with more than one DoF are structurally very similar to
 the 1-DoF chain.
 
-The following figure (Figure 1) depicts the kinematic chain example that we will
+The following figure ([@fig:comp:kc-example]) depicts the kinematic chain example that we will
 study below. It consists of the two links `link1` and `link2` as well as the
 revolute joint `joint1`.
 
-| ![Kinematic chain](fig/kinematic_chain.svg) |
-|:-------------------------------------------:|
-|      Figure 1: Kinematic chain example      |
+![Kinematic chain example](fig/kinematic_chain.svg){#fig:comp:kc-example}
 
 ### JSON-LD
 Here we choose to represent our models and metamodels with
@@ -39,13 +37,11 @@ elements can be hoisted out of a model to a composition model (e.g. the
 The first step is to create the "[skeleton](models/skeleton.json)" or "stick
 figure" for the bodies in the kinematic chain. By skeleton, we mean the bare
 minimum structure to which we attach further models. Here, the skeleton consists
-of points, vectors and frames as shown in the following diagram (Figure 2). The
+of points, vectors and frames as shown in the following diagram ([@fig:comp:kc-skeleton]). The
 arrows indicate that the origins of both frames coincide, but for better
 readability both frames are spatially separated in the figure.
 
-|           ![Skeleton](fig/skeleton.svg)           |
-|:-------------------------------------------------:|
-| Figure 2: Skeleton of the kinematic chain example |
+![Skeleton of the kinematic chain example](fig/skeleton.svg){#fig:comp:kc-skeleton}
 
 Note that the links' spatial extent or shape is not part of the skeleton.
 Instead, it is one of the possible attachments to entities in the skeleton. All
@@ -165,11 +161,10 @@ as we will discuss [below](#coordinates).
 With the above geometric entities instantiated, we can now model the first part
 of a link: it is simply a collection of all those entities that are part of the
 link. In accordance with mathematics we call this composition structure a
-simplicial complex as illustrated in the following diagram (Figure 3).
+simplicial complex as illustrated in the following diagram ([@fig:comp:simplices]).
 
-|                   ![Simplicial complex](fig/simplicial_complex.svg)                    |
-|:--------------------------------------------------------------------------------------:|
-| Figure 3: Graphical illustration of a simplicial complex as a collection of simplicies |
+![Graphical illustration of a simplicial complex as a collection of simplices
+  ](fig/simplicial_complex.svg){#fig:comp:simplices}
 
 In three dimensions it can consist of points, line segments, triangles ("2D
 frames") and tetrahedra ("3D frames") which are the 0-, 1-, 2- and 3-dimensional
@@ -229,13 +224,11 @@ constraint for "joint1".
 The second type of "imperative" spatial relations comprises the position, in its
 linear, angular and composite version as well as its first- and second-order
 time derivatives of velocity and acceleration, respectively. The following
-diagram (Figure 4) depicts the three pose relations (i.e. the composition of
+diagram ([@fig:comp:pose-relations]) depicts the three pose relations (i.e. the composition of
 positions and orientations represented as an arrow with a solid head) that are
 of interest in the kinematic chain example.
 
-|  ![Spatial relations](fig/spatial_relations.svg)  |
-|:-------------------------------------------------:|
-| Figure 4: Pose relations attached to the skeleton |
+![Pose relations attached to the skeleton](fig/spatial_relations.svg){#fig:comp:pose-relations}
 
 The lower-left pose crosses the link, the lower-right pose crosses the joint and
 the upper pose is the composition of the two previous poses. The following model
@@ -327,14 +320,12 @@ Newton-Euler equations for a rigid body relate acceleration and force via the
 body's inertia. Hence, for solving those equations a specification of the
 inertia is required as shown in the [dynamics model](models/dynamics.json).
 
-The following diagram (Figure 5) graphically represents three types of inertia
+The following diagram ([@fig:comp:inertia]) graphically represents three types of inertia
 attachments: a point mass $m$, a rotational inertia modelled by the principal
 moments of inertia $I_{xx}$ and $I_{yy}$ as well as a density over a volume
 $\int_V \rho(\vec{r})dV$.
 
-| ![Inertia attachment](fig/inertia_attachment.svg) |
-|:-------------------------------------------------:|
-|      Figure 5: Different inertia attachments      |
+![Different inertia attachments](fig/inertia_attachment.svg){#fig:comp:inertia}
 
 The textual model below gives an example of an inertia attachment to the second
 link in the kinematic chain. The so-called rigid-body inertia composes linear
